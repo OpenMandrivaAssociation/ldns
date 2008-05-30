@@ -5,7 +5,7 @@
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
 Version:	1.3.0
-Release:	%mkrel 0.20080229.1
+Release:	%mkrel 0.20080229.2
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nlnetlabs.nl/%{name}/
@@ -34,8 +34,8 @@ packets.
 %package -n	%{develname}
 Summary:	Development package that includes the ldns header files
 Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
-Provides:	%{name} = %{version}-%{release}
+Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n	%{develname}
 The devel package contains the ldns library and the include files

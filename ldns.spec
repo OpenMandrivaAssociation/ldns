@@ -5,7 +5,7 @@
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
 Version:	1.3.0
-Release:	%mkrel 0.20080229.2
+Release:	%mkrel 3.20080229.2
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nlnetlabs.nl/%{name}/

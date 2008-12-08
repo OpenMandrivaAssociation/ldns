@@ -5,11 +5,11 @@
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
 Version:	1.3.0
-Release:	%mkrel 3.20080229.2
+Release:	%mkrel 4
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nlnetlabs.nl/%{name}/
-Source0:	http://www.nlnetlabs.nl/downloads/%{name}-src.tar.gz
+Source0:	http://www.nlnetlabs.nl/downloads/%{name}-%{version}.tar.gz
 BuildRequires:	libtool
 BuildRequires:	openssl-devel
 BuildRequires:	doxygen
@@ -42,7 +42,7 @@ The devel package contains the ldns library and the include files
 
 %prep
 
-%setup -q -n ldns-1.3.0_pre_20080229
+%setup -q -n %{name}-%{version}
 
 %build
 
@@ -65,9 +65,13 @@ rm -rf doc/.svn
 #remove double set of man pages
 rm -rf doc/man
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
 %clean
 rm -rf %{buildroot}
@@ -75,7 +79,7 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-,root,root)
 %doc README LICENSE 
-%{_libdir}/lib*so.*
+%{_libdir}/lib*so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root,-)
@@ -85,4 +89,3 @@ rm -rf %{buildroot}
 %{_libdir}/lib*.so
 %{_libdir}/lib*.*a
 %{_mandir}/man3/*
-

@@ -4,7 +4,7 @@
 
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
-Version:	1.5.1
+Version:	1.6.0
 Release:	%mkrel 1
 License:	BSD
 Group:		System/Libraries
@@ -89,3 +89,4 @@ rm -rf %{buildroot}
 %{_libdir}/lib*.so
 %{_libdir}/lib*.*a
 %{_mandir}/man3/*
+%{_bindir}/%{name}-config

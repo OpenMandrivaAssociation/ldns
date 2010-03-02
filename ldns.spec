@@ -4,7 +4,7 @@
 
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
-Version:	1.6.0
+Version:	1.6.4
 Release:	%mkrel 1
 License:	BSD
 Group:		System/Libraries
@@ -41,11 +41,9 @@ Provides:	%{name}-devel = %{version}-%{release}
 The devel package contains the ldns library and the include files
 
 %prep
-
 %setup -q
 
 %build
-
 %configure2_5x \
     --disable-rpath
 
@@ -53,7 +51,6 @@ The devel package contains the ldns library and the include files
 
 %install
 rm -rf %{buildroot}
-
 %makeinstall_std
 
 # don't package building script in doc

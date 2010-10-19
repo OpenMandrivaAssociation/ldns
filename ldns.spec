@@ -5,7 +5,7 @@
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
 Version:	1.6.4
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nlnetlabs.nl/ldns/
@@ -20,6 +20,14 @@ ldns is a library with the aim to simplify DNS programing in C. All
 lowlevel DNS/DNSSEC operations are supported. We also define a higher
 level API which allows a programmer to (for instance) create or sign
 packets.
+
+%package -n %{name}-utils
+Summary:	DNS(SEC) utility
+Group:	    Networking/Other	
+%description -n	%{name}-utils
+This package contains various utilities used to manage
+and validate DNSSEC zones using ldns library. 
+
 
 %package -n	%{libname}
 Summary:	Lowlevel DNS(SEC) library with API
@@ -46,12 +54,19 @@ The devel package contains the ldns library and the include files
 %build
 %configure2_5x \
     --disable-rpath
+( cd examples ; %configure )
+( cd drill ; %configure )
 
 %make
+( cd examples ; %make )
+( cd drill ; %make )
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+( cd examples ; %makeinstall_std )
+( cd drill ; %makeinstall_std )
+
 
 # don't package building script in doc
 rm doc/doxyparse.pl
@@ -87,3 +102,10 @@ rm -rf %{buildroot}
 %{_libdir}/lib*.*a
 %{_mandir}/man3/*
 %{_bindir}/%{name}-config
+
+%files -n %{name}-utils
+%defattr(-,root,root)
+%{_bindir}/*
+%exclude %{_bindir}/%{name}-config
+%{_mandir}/man1/*
+

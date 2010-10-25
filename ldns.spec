@@ -7,7 +7,7 @@
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
 Version:	1.6.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nlnetlabs.nl/ldns/
@@ -15,8 +15,10 @@ Source0:	http://www.nlnetlabs.nl/downloads/ldns/ldns-%{version}.tar.gz
 BuildRequires:	libtool
 BuildRequires:	openssl-devel
 BuildRequires:	doxygen
+%if %{build_python}
 BuildRequires:	swig
 BuildRequires:	python-devel
+%endif
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description

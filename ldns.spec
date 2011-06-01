@@ -6,7 +6,7 @@
 
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
-Version:	1.6.8
+Version:	1.6.9
 Release:	%mkrel 1
 License:	BSD
 Group:		System/Libraries
@@ -29,7 +29,7 @@ packets.
 
 %package -n	%{name}-utils
 Summary:	DNS(SEC) utility
-Group:		Networking/Other	
+Group:		Networking/Other
 
 %description -n	%{name}-utils
 This package contains various utilities used to manage

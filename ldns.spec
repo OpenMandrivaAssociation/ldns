@@ -6,7 +6,7 @@
 
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
-Version:	1.6.9
+Version:	1.6.10
 Release:	%mkrel 1
 License:	BSD
 Group:		System/Libraries

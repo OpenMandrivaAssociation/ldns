@@ -12,7 +12,9 @@ License:	BSD
 Group:		System/Libraries
 URL:		http://www.nlnetlabs.nl/ldns/
 Source0:	http://www.nlnetlabs.nl/downloads/ldns/ldns-%{version}.tar.gz
-BuildRequires:	libtool
+Patch0:		ldns-1.6.11-avoid-version.diff
+Patch1:		ldns-1.6.11-build_only_once.diff
+BuildRequires:	automake autoconf libtool
 BuildRequires:	openssl-devel
 BuildRequires:	doxygen
 %if %{build_python}
@@ -65,6 +67,8 @@ Python extensions for ldns
 
 %prep
 %setup -q
+%patch0 -p0
+%patch1 -p0
 
 %build
 %configure2_5x \
@@ -83,25 +87,25 @@ Python extensions for ldns
 
 %install
 rm -rf %{buildroot}
+
 %makeinstall_std
 ( cd examples ; %makeinstall_std )
 ( cd drill ; %makeinstall_std )
 
-# don't package building script in doc
-rm doc/doxyparse.pl
-
-#remove doc stubs
-rm -rf doc/.svn
-
-#remove double set of man pages
-rm -rf doc/man
+# cleanup and fix --short-circuit
+rm -rf docs; mkdir -p docs
+cp -rp doc docs/
+rm -rf docs/doc/man
+rm -f docs/doc/doxyparse.pl
+rm -f docs/doc/ldns_manpages
+rm -rf docs/doc/.svn
 
 #we don't want these
 find %{buildroot} -name "*.la" -exec rm -rf {} \;
 
 %if %{build_python}
 #remove executable bit
-chmod a-x %{buildroot}%{python_sitelib}/*py
+chmod a-x %{buildroot}%{py_platsitedir}/*py
 %endif
 
 %clean
@@ -114,7 +118,7 @@ rm -rf %{buildroot}
 
 %files -n %{develname}
 %defattr(-,root,root,-)
-%doc doc Changelog README
+%doc docs/* Changelog README
 %dir %{_includedir}/ldns
 %{_includedir}/ldns/*
 %{_libdir}/lib*.so
@@ -130,5 +134,5 @@ rm -rf %{buildroot}
 %if %{build_python}
 %files -n python-%{name}
 %defattr(-,root,root)
-%{python_sitelib}/*
+%{py_platsitedir}/*
 %endif

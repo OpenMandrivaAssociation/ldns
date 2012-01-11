@@ -6,8 +6,8 @@
 
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
-Version:	1.6.11
-Release:	%mkrel 2
+Version:	1.6.12
+Release:	1
 License:	BSD
 Group:		System/Libraries
 URL:		http://www.nlnetlabs.nl/ldns/
@@ -21,7 +21,6 @@ BuildRequires:	doxygen
 BuildRequires:	swig
 BuildRequires:	python-devel
 %endif
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 ldns is a library with the aim to simplify DNS programing in C. All
@@ -67,8 +66,8 @@ Python extensions for ldns
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p0
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure2_5x \
@@ -86,8 +85,6 @@ Python extensions for ldns
 ( cd drill ; %make )
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 ( cd examples ; %makeinstall_std )
 ( cd drill ; %makeinstall_std )
@@ -107,9 +104,6 @@ find %{buildroot} -name "*.la" -exec rm -rf {} \;
 #remove executable bit
 chmod a-x %{buildroot}%{py_platsitedir}/*py
 %endif
-
-%clean
-rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)

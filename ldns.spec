@@ -6,7 +6,7 @@
 
 Summary:	Lowlevel DNS(SEC) library with API
 Name:		ldns
-Version:	1.6.12
+Version:	1.6.13
 Release:	1
 License:	BSD
 Group:		System/Libraries
@@ -106,12 +106,10 @@ chmod a-x %{buildroot}%{py_platsitedir}/*py
 %endif
 
 %files -n %{libname}
-%defattr(-,root,root)
 %doc README LICENSE 
 %{_libdir}/lib*so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root,-)
 %doc docs/* Changelog README
 %dir %{_includedir}/ldns
 %{_includedir}/ldns/*
@@ -120,13 +118,11 @@ chmod a-x %{buildroot}%{py_platsitedir}/*py
 %{_bindir}/%{name}-config
 
 %files -n %{name}-utils
-%defattr(-,root,root)
 %{_bindir}/*
 %exclude %{_bindir}/%{name}-config
 %{_mandir}/man1/*
 
 %if %{build_python}
 %files -n python-%{name}
-%defattr(-,root,root)
 %{py_platsitedir}/*
 %endif

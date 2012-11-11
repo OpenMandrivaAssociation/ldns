@@ -1,0 +1,40 @@
+diff --git a/Makefile.in b/Makefile.in
+index 32f5463..4ba87a4 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -250,7 +250,7 @@ uninstall-config-manpage:
+ 	rm -f $(DESTDIR)$(mandir)/man1/ldns-config.1
+ 	test ! -d $(DESTDIR)$(mandir)/man1 || rmdir -p $(DESTDIR)$(mandir)/man1 || echo "ok, dir already gone"
+ 
+-install-manpages: manpages  @INSTALL_CONFIG_MANPAGE@
++install-manpages:
+ 	${INSTALL} -d $(DESTDIR)$(mandir)/man3
+ 	for f in doc/man/man3/*; do \
+ 		${INSTALL} -c -m 444 $$f $(DESTDIR)$(mandir)/man3/; \
+@@ -261,7 +261,7 @@ uninstall-manpages: @UNINSTALL_CONFIG_MANPAGE@
+ 		rm -f $(DESTDIR)$(mandir)/man3/$$m.3 ; done
+ 	test ! -d $(DESTDIR)$(mandir)/man3 || rmdir -p $(DESTDIR)$(mandir)/man3 || echo "ok, dir already gone"
+ 
+-install-h: lib
++install-h:
+ 	$(INSTALL) -m 755 -d $(DESTDIR)$(includedir)/ldns
+ 	for i in $(LDNS_HEADERS); do \
+ 		$(INSTALL) -c -m 644 $(srcdir)/ldns/$$i $(DESTDIR)$(includedir)/ldns/; done
+@@ -274,7 +274,7 @@ uninstall-h:
+ 	test ! -d $(DESTDIR)$(includedir)/ldns || rmdir -p $(DESTDIR)$(includedir)/ldns || echo "ok, dir already gone"
+ 	exit 0
+ 
+-install-lib: lib
++install-lib:
+ 	$(INSTALL) -m 755 -d $(DESTDIR)$(libdir)
+ 	$(LIBTOOL) --mode=install cp libldns.la $(DESTDIR)$(libdir)
+ 	$(LIBTOOL) --mode=finish $(DESTDIR)$(libdir)
+@@ -283,7 +283,7 @@ uninstall-lib:
+ 	$(LIBTOOL) --mode=uninstall rm -f $(DESTDIR)$(libdir)/libldns.la
+ 	test ! -d $(DESTDIR)$(libdir) || rmdir -p $(DESTDIR)$(libdir) || echo "ok, dir already gone"
+ 
+-install-pyldns: @PYLDNS@
++install-pyldns:
+ 	$(INSTALL) -m 755 -d $(DESTDIR)$(python_site)/ldns
+ 	$(INSTALL) -c -m 644 $(pywrapdir)/ldns.py $(DESTDIR)$(python_site)/ldns.py
+ 	$(LIBTOOL) --mode=install cp _ldns.la $(DESTDIR)$(python_site)

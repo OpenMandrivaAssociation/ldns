@@ -126,3 +126,87 @@ chmod a-x %{buildroot}%{py_platsitedir}/*py
 %files -n python-%{name}
 %{py_platsitedir}/*
 %endif
+
+
+%changelog
+* Mon Jul 16 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.6.13-1
++ Revision: 809816
+- version update 1.6.13
+
+* Wed Jan 11 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.6.12-1
++ Revision: 760141
+- version update 1.6.12
+
+* Sat Nov 05 2011 Oden Eriksson <oeriksson@mandriva.com> 1.6.11-2
++ Revision: 719584
+- bump release
+- fix build
+- 1.6.11 (fixes CVE-2011-3581)
+
+* Sun Jun 12 2011 Oden Eriksson <oeriksson@mandriva.com> 1.6.10-1
++ Revision: 684325
+- 1.6.10
+
+* Wed Jun 01 2011 Oden Eriksson <oeriksson@mandriva.com> 1.6.9-1
++ Revision: 682253
+- 1.6.9
+
+* Wed Mar 16 2011 Stéphane Téletchéa <steletch@mandriva.org> 1.6.8-1
++ Revision: 645249
+- update to new version 1.6.8
+
+* Fri Oct 29 2010 Michael Scherer <misc@mandriva.org> 1.6.6-3mdv2011.0
++ Revision: 590007
+- rebuild for python 2.7
+
+* Mon Oct 25 2010 Jani Välimaa <wally@mandriva.org> 1.6.6-2mdv2011.0
++ Revision: 589267
+- add more conditionals for building python subpackage
+
+* Mon Oct 25 2010 Jani Välimaa <wally@mandriva.org> 1.6.6-1mdv2011.0
++ Revision: 589266
+- new version 1.6.6
+- build python extensions
+- minor spec cleaning
+- disable static build
+
+* Tue Oct 19 2010 Michael Scherer <misc@mandriva.org> 1.6.4-3mdv2011.0
++ Revision: 586687
+- add a ldns-utils subpackage with various utilities
+
+* Tue Apr 20 2010 Funda Wang <fwang@mandriva.org> 1.6.4-2mdv2010.1
++ Revision: 536962
+- rebuild
+
+* Tue Mar 02 2010 Sandro Cazzaniga <kharec@mandriva.org> 1.6.4-1mdv2010.1
++ Revision: 513634
+- update to 1.6.4
+
+* Fri Jul 31 2009 Frederik Himpe <fhimpe@mandriva.org> 1.6.0-1mdv2010.0
++ Revision: 405233
+- Update to new version 1.6.0
+
+* Thu Mar 26 2009 Oden Eriksson <oeriksson@mandriva.com> 1.5.1-1mdv2009.1
++ Revision: 361325
+- 1.5.1 (fixes CVE-2009-1086)
+
+* Mon Dec 08 2008 Oden Eriksson <oeriksson@mandriva.com> 1.4.0-0.20081103.1mdv2009.1
++ Revision: 311881
+- 1.4.0 (from unbound-1.1.1.tar.gz)
+
+* Mon Dec 08 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.0-4mdv2009.1
++ Revision: 311861
+- 1.3.0 (final)
+
+* Fri Aug 08 2008 Thierry Vignaud <tv@mandriva.org> 1.3.0-3.20080229.2mdv2009.0
++ Revision: 267800
+- rebuild early 2009.0 package (before pixel changes)
+
+* Fri May 30 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.0-0.20080229.2mdv2009.0
++ Revision: 213295
+- fix deps
+
+* Thu May 29 2008 Oden Eriksson <oeriksson@mandriva.com> 1.3.0-0.20080229.1mdv2009.0
++ Revision: 213178
+- import ldns
+

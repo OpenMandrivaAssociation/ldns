@@ -10,7 +10,7 @@ Version:	1.6.13
 Release:	2
 License:	BSD
 Group:		System/Libraries
-URL:		http://www.nlnetlabs.nl/ldns/
+URL:		https://www.nlnetlabs.nl/ldns/
 Source0:	http://www.nlnetlabs.nl/downloads/ldns/ldns-%{version}.tar.gz
 Patch0:		ldns-1.6.11-avoid-version.diff
 Patch1:		ldns-1.6.11-build_only_once.diff

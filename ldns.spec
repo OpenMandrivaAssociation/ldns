@@ -14,6 +14,8 @@ URL:		https://www.nlnetlabs.nl/ldns/
 Source0:	http://www.nlnetlabs.nl/downloads/ldns/ldns-%{version}.tar.gz
 Patch0:		ldns-1.6.11-avoid-version.diff
 Patch1:		ldns-1.6.11-build_only_once.diff
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	automake autoconf libtool
 BuildRequires:	openssl-devel
 BuildRequires:	doxygen
